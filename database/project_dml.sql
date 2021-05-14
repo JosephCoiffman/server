@@ -1,3 +1,6 @@
+-- Data Manipulation Queries
+--$data represents user input
+
 -- LEAGUE HISTORIES
 
 -- League Histories Page select query 
@@ -10,7 +13,7 @@ VALUES ($leagueName, $completedSeasonsNum);
 -- League Histories Page update query
 UPDATE league_histories
 SET league_name = $leagueName, completed_seasons_num = $completedSeasonsNum
-WHERE league_histories_id = $id;
+WHERE league_id = $id;
 
 -- League Histories Page delete query
 DELETE FROM league_histories WHERE league_id = $id;
@@ -35,7 +38,7 @@ SET league_id = $leagueID, season_name = $seasonName, date_season_started = $dat
 date_season_ended = $dateSeasonEnded, league_champion = $leagueChampion, western_champion = $westernChampion, 
 eastern_champion = $easternChampion, most_valuable_player = $mostValuablePlayer, defensive_player_of_the_year = $defensivePlayerOfTheYear, 
 most_improved_player_of_the_year = $mostImprovedPlayerOfTheYear, sixth_man_of_the_year = $sixthManOfTheYear
-WHERE seasons_id = $id;
+WHERE season_id = $id;
 
 -- Seasons Page delete query
 DELETE FROM seasons WHERE season_id = $id;
@@ -70,7 +73,7 @@ fouls_per_game = $foulsPerGame, fg_attempted_per_game = $fgAttemptedPerGame, 3pt
 fg_percentage = $fgPercentage, 3pt_fg_percentage = $3ptfgPercentage, ft_percentage = $ftPercentage, 
 point_differential = $pointDifferential, reg_season_wins = $regSeasonWins, reg_season_losses = $regSeasonLosses, 
 reg_season_win_percentage = $regSeasonWinPercentage
-WHERE teams_id = $id;
+WHERE team_id = $id;
 
 -- Teams Page delete query
 DELETE FROM teams WHERE team_id = $id;
@@ -99,7 +102,7 @@ player_height_inch = $playerHeightInch, points_per_game = $pointsPerGame, assist
 steals_per_game = $stealsPerGame, blocks_per_game = $blocksPerGame, rebounds_per_game = $reboundsPerGame, 
 fouls_per_game = $foulsPerGame, fg_attempted_per_game = $fgAttemptedPerGame, 3pt_fg_attempted_per_game = $3ptfgAttemptedPerGame, 
 ft_attempted_per_game = $ftAttemptedPerGame, ft_percentage = $ftPercentage, plus_minus = $plusMinus
-WHERE players_id = $id;
+WHERE player_id = $id;
 
 -- Players Page delete query
 DELETE FROM players WHERE player_id = $id;
@@ -116,10 +119,10 @@ VALUES ($playerID, $teamID);
 -- Player Team Relations Page update query
 UPDATE player_team_relations
 SET player_id = $playerID, team_id = $teamID
-WHERE player_team_relations_id = $id;
+WHERE player_team_id = $id;
 
 -- Player Team Relations Page delete query
-DELETE FROM player_team_relations WHERE player_team_relations_id = $id;
+DELETE FROM player_team_relations WHERE player_team_id = $id;
 
 -- COACHES
 
@@ -151,7 +154,7 @@ VALUES ($coachID, $teamID);
 -- Coach Team Relations Page update query
 UPDATE coach_team_relations
 SET coach_id = $coachID, team_id = $teamID
-WHERE coach_team_relations_id = $id;
+WHERE coach_team_id = $id;
 
 -- Coach Team Relations Page delete query
-DELETE FROM coach_team_relations WHERE coach_team_relations_id = $id;
+DELETE FROM coach_team_relations WHERE coach_team_id = $id;

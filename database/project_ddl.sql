@@ -1,3 +1,5 @@
+-- Data Definition Queries
+
 -- Drop table to reset database
 DROP TABLE IF EXISTS `league_histories`;
 DROP TABLE IF EXISTS `seasons`;
